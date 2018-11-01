@@ -53,7 +53,7 @@ var base = {
   222: "'",
   229: "q"
 }
-exports.base = base
+export { base }
 
 var shift = {
   48: ")",
@@ -82,7 +82,7 @@ var shift = {
   222: "\"",
   229: "Q"
 }
-exports.shift = shift
+export { shift }
 
 var chrome = typeof navigator != "undefined" && /Chrome\/(\d+)/.exec(navigator.userAgent)
 var safari = typeof navigator != "undefined" && /Apple Computer/.test(navigator.vendor)
@@ -105,7 +105,7 @@ for (var i = 65; i <= 90; i++) {
 // For each code that doesn't have a shift-equivalent, copy the base name
 for (var code in base) if (!shift.hasOwnProperty(code)) shift[code] = base[code]
 
-exports.keyName = function(event) {
+export const keyName = function(event) {
   // Don't trust event.key in Chrome when there are modifiers until
   // they fix https://bugs.chromium.org/p/chromium/issues/detail?id=633838
   var ignoreKey = brokenModifierNames && (event.ctrlKey || event.altKey || event.metaKey) ||
