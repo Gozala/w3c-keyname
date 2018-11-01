@@ -1,0 +1,7 @@
+// @flow strict
+
+declare export function keyName(event: Event): string;
+
+declare export var base: {[keyCode: number]: string};
+
+declare export var shift: {[keyCode: number]: string};
